@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css?family=Laila");
 @import url("https://fonts.googleapis.com/css?family=Tangerine");
 @import url("https://fonts.googleapis.com/css?family=Bellefair");
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 
 .brand {
   font-size: 4em;
@@ -15,8 +16,12 @@
 #navbar {
   border-bottom: 2px solid #bdbbbb;
 }
+.ruler {
+  width: 65vw;
+  border: 0.1px solid #181e20;
+}
 .mr-auto {
-  text-align: end;
+  text-align: right;
   font-size: 1.5em;
   text-decoration: none;
 }
@@ -35,11 +40,20 @@ form > input {
   margin: auto;
 }
 form > #title {
-  width: 40vw;
-  padding: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 70%;
+  overflow-wrap: break-word;
   border: 1px solid black;
-  margin: 9px;
-  font-family: "Laila";
+  font-family: "Quicksand";
+}
+form > #author {
+  padding: 10px;
+  margin: 20px;
+  width: 40%;
+  overflow-wrap: break-word;
+  border: 1px solid black;
+  font-family: "Quicksand";
 }
 form > #post {
   padding: 10px;
@@ -55,27 +69,45 @@ form > #title::placeholder {
   text-align: center;
   padding-left: auto;
   padding-right: auto;
-  font-family: "Laila";
+  font-family: "Quicksand";
+}
+.blogbuttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-textarea {
+form > #author::placeholder {
+  text-align: center;
+  padding-left: auto;
+  padding-right: auto;
+  font-family: "Quicksand";
+}
+
+#blogbox {
+  text-align: center;
+  max-width: 80%;
+}
+
+#create {
   width: 70vw;
   height: 70vh;
   padding: 10px;
   border: 1.5px solid black;
-  font-family: "Laila";
+  font-family: "Quicksand";
 }
 
-textarea::placeholder {
+#create::placeholder {
   text-align: center;
   padding-left: auto;
   padding-right: auto;
   padding-top: 10px;
-  font-family: "Laila";
+  font-family: "Quicksand";
 }
+
 center {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 20px;
 }
 
 .App {
@@ -104,16 +136,22 @@ center {
 }
 
 #content {
-  height: 30vh;
-  margin: 50px 100px;
+  max-width: 60%;
   font-size: 25px;
   font-weight: 200;
+  padding: 15px;
+  margin: 20px;
   overflow-wrap: break-word;
 }
 #head {
-  padding: 20px;
   font-size: 40px;
   font-weight: 500;
+  font-family: "Laila";
+}
+#head2 {
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Laila";
 }
 
 .link:hover {
@@ -144,21 +182,57 @@ center {
 
 #Button {
   border: 1px solid black;
+  padding: 10px;
+  width: 80%;
+}
+#contentCreate {
+  width: 70vw;
+  height: 70vh;
+  padding: 10px;
+  border: 1.5px solid black;
+  font-family: "Quicksand";
 }
 
-.bloglinkname {
+.bloglinkname1 {
   text-decoration: none;
-  padding: 12px;
-  font-size: 1.8em;
+  padding: 20px;
+  font-size: 2.5em;
   color: black;
-  font-family: "Courgette";
+  font-family: "Laila";
+  text-align: center;
+  overflow-wrap: break-word;
+  margin: 8px;
+}
+.bloglinkname2 {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 1.5em;
+  color: rgb(41, 41, 41);
+  font-family: "Kalam";
+  margin: 8px;
+  text-align: right;
+  overflow-wrap: break-word;
 }
 
-.bloglinkname:hover {
+.bloglinkname1:hover {
   text-decoration: none;
-  padding: 12px;
-  font-size: 1.8em;
+  padding: 20px;
+  font-size: 2.5em;
   color: black;
+  font-family: "Laila";
+  text-align: center;
+  overflow-wrap: break-word;
+  margin: 8px;
+}
+.bloglinkname2:hover {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 1.5em;
+  color: rgb(41, 41, 41);
+  font-family: "Kalam";
+  margin: 8px;
+  text-align: right;
+  overflow-wrap: break-word;
 }
 .carousel {
   width: 100% !important;
@@ -178,37 +252,6 @@ center {
   height: 500px;
 }
 
-.manual-btn {
-  border: 2px solid #61ece1;
-  padding: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 1s;
-}
-.manual-btn:not(:last-child) {
-  margin-right: 40px;
-}
-
-#r1:checked ~ .first {
-  margin-left: 0;
-  background: aqua;
-}
-
-#r2:checked ~ .first {
-  margin-left: -20%;
-}
-
-#r3:checked ~ .first {
-  margin-left: -40%;
-}
-
-#r4:checked ~ .first {
-  margin-left: -60%;
-}
-
-#r5:checked ~ .first {
-  margin-left: -80%;
-}
 .body3 {
   width: fit-content;
   display: flex;
@@ -219,13 +262,18 @@ center {
 Link:hover {
   text-decoration: none;
 }
-.ruler {
-  width: 50vw;
-}
 
 .Jumbotron {
   /* padding: 40px; */
   background-image: url(./images/info1.jpg);
+}
+#display {
+  width: 70vw;
+  height: 70vh;
+  padding: 20px;
+  font-size: 20px;
+  border: 0.5px solid rgb(236, 236, 236);
+  font-family: "Quicksand";
 }
 
 .Jumbotron1 {

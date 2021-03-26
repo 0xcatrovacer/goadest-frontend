@@ -4,7 +4,7 @@ import BlogViewer from "./BlogViewer";
 import { useState } from "react";
 
 
-function BlogBox({ title, address }) {
+function BlogBox({ title, address, author }) {
 
     const [showBlog, setshowBlog] = useState(false)
 
@@ -13,10 +13,15 @@ function BlogBox({ title, address }) {
     }
 
     return (
+
         <center>
             <Button variant="light" id="Button" onClick={handleIndividualBlog} >
-                <Link className="bloglinkname" to={'/blogs/readblogs/' + address}>
+                <Link className="bloglinkname1" to={'/blogs/readblogs/' + address}>
                     <span>{title}</span>
+                    <br />
+                </Link>
+                <Link className="bloglinkname2" to={'/blogs/readblogs/' + address}>
+                    <span className="author">-: by {author}</span>
                 </Link>
             </Button>
 
@@ -28,6 +33,7 @@ function BlogBox({ title, address }) {
 
             <br />
         </center>
+
     )
 }
 

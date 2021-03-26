@@ -1,41 +1,35 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { config } from "../../config";
 
 const BlogViewer = ({ id }) => {
-
-    const [blog, setBlog] = useState(null)
+    const [blog, setBlog] = useState(null);
 
     const callFn = () => {
-
-        axios.get(`${process.env.REACT_APP_GOADEST_BACKEND}/post/${id}`)
+        axios
+            .get(`${config.backendUrl}/post/${id}`)
             .then((res) => {
                 setBlog(res.data);
                 console.log(res.data);
-            }).catch((e) => {
-                console.log(e.message)
             })
-    }
+            .catch((e) => {
+                console.log(e.message);
+            });
+    };
 
     useEffect(() => {
-
-        callFn()
-
+        callFn();
     }, []);
-
 
     return (
         <div>
-
-            <center className="blogCenter" >
+            <center>
                 <hr className="ruler" />
-                <div id="head">{blog && blog.title}</div>
-                <br />
-                <div>{blog && blog.author}</div>
+                <div id="content" placeholder="Blog Content">{blog && blog.content}</div>
                 <hr className="ruler" />
-                <div id="content">{blog && blog.content}</div>
             </center>
         </div>
-    )
-}
+    );
+};
 
-export default BlogViewer
+export default BlogViewer;
