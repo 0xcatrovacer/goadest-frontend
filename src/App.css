@@ -105,9 +105,10 @@ center {
 
 #content {
   height: 30vh;
-  padding: 20px;
+  margin: 50px 100px;
   font-size: 25px;
   font-weight: 200;
+  overflow-wrap: break-word;
 }
 #head {
   padding: 20px;
